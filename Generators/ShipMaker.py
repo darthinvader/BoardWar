@@ -30,10 +30,12 @@ def GenerateShip(ShipName):
     strength = ceil(normal(mean, mean / 5))
     if strength <= 1:
         strength = 1
-    BC = ceil(normal(mean, mean / 3))
+    BC = ceil(normal(mean, mean / 5))
     if BC <= 1:
         BC = 1
-    WC = ceil((strength/4)*sqrt(strength/BC))
+    WC = floor((strength/5)*sqrt(strength/(BC)))
+    if WC<1:
+        WC = 1
     ship = Ship(ShipName, strength, BC, WC, '')
     return ship
 
@@ -46,6 +48,7 @@ def GenerateFleet():
     for i in ShipNames:
         ships.append(GenerateShip(i))
         ships[-1].printShip()
+    return ships
     print()
 
     # heroes = list()
