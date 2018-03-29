@@ -8,11 +8,10 @@ import copy
 
 
 class Ship():
-    def __init__(self, Name, Strength, BC, WC, Effect):
+    def __init__(self, Name, Strength, BC, Effect):
         self.Name = Name
         self.Strength = Strength
         self.BC = BC
-        self.WC = WC
         self.Effect = Effect
 
     def setEffect(self, Effect):
@@ -22,7 +21,7 @@ class Ship():
         self.Cost = Cost
 
     def printShip(self):
-        print(self.Name, ",Strength:", self.Strength, ",BC:", self.BC, ",WC:", self.WC, ",Effect:", self.Effect)
+        print(self.Name, ",Strength:", self.Strength, ",BC:", self.BC, ",Effect:", self.Effect)
 
 
 def GenerateShip(ShipName):
@@ -30,13 +29,10 @@ def GenerateShip(ShipName):
     strength = ceil(normal(mean, mean / 5))
     if strength <= 1:
         strength = 1
-    BC = ceil(normal(mean, mean / 5))
+    BC = ceil(normal(strength, mean / 10))
     if BC <= 1:
         BC = 1
-    WC = floor((strength/5)*sqrt(strength/(BC)))
-    if WC<1:
-        WC = 1
-    ship = Ship(ShipName, strength, BC, WC, '')
+    ship = Ship(ShipName, strength, BC, '')
     return ship
 
 
