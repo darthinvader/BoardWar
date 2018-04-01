@@ -8,7 +8,7 @@ PhotoSize = (1000, 800)
 NamePos = (100, 70)
 PhotoPos = (100, 270)
 EffStrPos = (100, 1120)
-TextPos = (120,105)
+TextPos = (120, 105)
 
 def ShipCard(ShipName,ImagePath):
     # size = (1700, 1200)
@@ -34,6 +34,6 @@ def ShipCard(ShipName,ImagePath):
     d.text(TextPos, ShipName, font=FontLoad, fill=(255, 255, 255, 255))
     out = Image.alpha_composite(ShipCard, txtImage)
     out.show()
-
+    print(d.textsize(ShipName,FontLoad))
 
 ShipCard("Corvette","../Images/Ships/Corvette.jpg")
