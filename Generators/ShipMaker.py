@@ -24,8 +24,9 @@ class Ship():
         print(self.Name, ",Strength:", self.Strength, ",BC:", self.BC, ",Effect:", self.Effect)
 
 
-def GenerateShip(ShipName):
-    mean = StrengthMean[ShipName]
+def GenerateShip(ShipNum):
+    mean = Ships[ShipNum][1]
+    ShipName = Ships[ShipNum][0]
     strength = ceil(normal(mean, mean / 5))
     if strength <= 1:
         strength = 1
@@ -41,7 +42,7 @@ def GenerateShip(ShipName):
 
 def GenerateFleet():
     ships = list()
-    for i in ShipNames:
+    for i in range(0, len(Ships)):
         ships.append(GenerateShip(i))
         ships[-1].printShip()
     return ships

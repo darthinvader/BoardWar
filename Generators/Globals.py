@@ -1,6 +1,9 @@
-ShipNames = ['Corvette', 'Cruiser', 'Battleship', 'Destroyer', 'Dreadnought', 'Titan']
+ShipNames = ['Corvette','Cruiser','Battleship','Destroyer','Dreadgnought','Titan']
 
-StrengthMean = {'Corvette': 5, 'Cruiser': 10, 'Battleship': 20, 'Destroyer': 30, 'Dreadnought': 45, 'Titan': 100}
+
+Ships = [('Corvette', 5), ('Cruiser', 10), ('Battleship', 20), ('Destroyer', 30), ('Dreadnought', 45), ('Titan', 100)]
+
+ShipPhotos = ['../Images/Ship/Corvette.jpg']
 
 xEffects = [("Draw ", (2, 3, 4), " cards.", (20, 30, 40)),
             ("This turn you can buy up to ", (2, 3, 4), " ships.", (15, 30, 45)),
@@ -12,8 +15,8 @@ xEffects = [("Draw ", (2, 3, 4), " cards.", (20, 30, 40)),
             ("After revealing you can play this card.Double the strength of all your ", ShipNames, (75, 75, 75, 75, 75, 75)),
             ("After a player you skirmish with places ships face down you can activate this card.Reveal ", (2, 3, 4, 5),
              " ships randomly.", (20, 30, 40, 50))]
-xEffectsNames = ["New Edicts", "New Engineers", "Emergency Reserves", "Spoils of war", "Emergency FTL",
-                 "Lots of papers",
+xEffectsNames = ["New Edicts", "Extra Shipyards", "Emergency Reserves", "Spoils of war", "Emergency FTL",
+                 "Lots of Science",
                  "Extra firepower", "Big Sensors"]
 xEffectsPhotos = []
 
@@ -32,8 +35,17 @@ Effects = [("Select a player.Select a random card from his hand.Discard it.", 30
            ("When a player goes to war with you,you can play this card.Cancel the war", 15),
            ("Buy a ship from the junkyard", 35)]
 
-EffectsNames = ["Sabotage", "Ship Termination", "Mining Overload", "Ship Recycling", "Research Grants", "Space Mess",
+EffectsNames = ["Sabotage", "Ship Termination", "Mining Overload", "Ship Recycling", "Research Grants", "Spaceship Finding",
                 "Redesigns", "Retreat", "Firepower Overload", "Concentrated Firepower", "Seize the ships", "Recycling",
                 "Peace", "Junk Ship"]
 
-EffectPhotos = []
+HeroShips = []
+
+
+ShipBackground = '../Images/Neutrals/ShipBackground.jpg'
+NameBorder = '../Images/Neutrals/TextOutline.png'
+PhotoOutline = '../Images/Neutrals/PhotoOutline.png'
+EffOutline = '../Images/Neutrals/EffStrOutline.png'
+CardOutline = '../Images/Neutrals/BackgroundBorder.png'
+
+SpaceFont = '../Fonts/Nebulous-Regular.ttf'

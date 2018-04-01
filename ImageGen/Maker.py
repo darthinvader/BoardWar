@@ -1,44 +1,39 @@
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
+from Generators.Globals import *
 
-CardSize = (1700, 1200)
+NeutralPos = (0, 0)
+CardSize = (1200, 1700)
 PhotoSize = (1000, 800)
-PhotoPos = (100,100)
+NamePos = (100, 70)
+PhotoPos = (100, 270)
+EffStrPos = (100, 1120)
+TextPos = (120,105)
 
-def ShipCard(ImagePath):
+def ShipCard(ShipName,ImagePath):
     # size = (1700, 1200)
-    ShipImage = Image.new('RGBA', CardSize, 'White')
-    Photo = (Image.open(ImagePath)).resize(PhotoSize, Image.ANTIALIAS)
-    ShipImage.paste(Photo, (100, 0), Photo)
-    ShipImage.show()
+    FontLoad = ImageFont.truetype(SpaceFont, 100)
 
-    del Photo
+    ShipCard = Image.new('RGBA', CardSize, 'White')
+    ShipPhoto = (Image.open(ImagePath)).resize(PhotoSize, Image.ANTIALIAS)
+    ShipCardBg = (Image.open(ShipBackground)).resize(CardSize, Image.ANTIALIAS)
+    NameCardBorder = (Image.open(NameBorder))
+    CardBorder = (Image.open(CardOutline))
+    PhotoBorder = (Image.open(PhotoOutline))
+    EffBorder = (Image.open(EffOutline))
+
+    ShipCard.paste(ShipCardBg, NeutralPos, None)
+    ShipCard.paste(ShipPhoto, PhotoPos, None)
+    ShipCard.paste(CardBorder, NeutralPos, CardBorder)
+    ShipCard.paste(NameCardBorder, NamePos, NameCardBorder)
+    ShipCard.paste(PhotoBorder, PhotoPos, PhotoBorder)
+    ShipCard.paste(EffBorder, EffStrPos, EffBorder)
+
+    txtImage = Image.new('RGBA', ShipCard.size, (255, 255, 255, 0))
+    d = ImageDraw.Draw(txtImage)
+    d.text(TextPos, ShipName, font=FontLoad, fill=(255, 255, 255, 255))
+    out = Image.alpha_composite(ShipCard, txtImage)
+    out.show()
 
 
-# Convert Image to array
-
-
-ShipCard("foo.png")
-
-# shape = (1700,1200,4)
-# arr = np.ndarray(shape,)
-#
-# arr = np.array(arr)
-# for i in arr:
-#     for j in i:
-#             j[0] = np.random.normal(0, 50)
-#             if j[0]>255:
-#                 j[0] = 255
-#             if j[0]<0:
-#                 j[0] = 0
-#             j[1] = 0#(np.random.normal(122, 10)%255)
-#             j[2] = 0#(np.random.normal(122, 10)%255)
-#             j[3] = 100
-#
-#
-# print(arr)
-#
-#
-# im = Image.fromarray(np.uint8(arr))
-#
-# im.show()
+ShipCard("Corvette","../Images/Ships/Corvette.jpg")
