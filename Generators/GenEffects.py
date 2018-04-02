@@ -1,5 +1,6 @@
 from Generators.Globals import *
-
+from ImageGen import Maker
+from PIL import Image
 class Effect():
     def __init__(self, Name, Effect, Cost, ImagePath):
         self.Name = Name
@@ -13,9 +14,23 @@ class Effect():
         self.Cost = Cost
 
     def printEffect(self):
-        print(self.Name, ",Effect:", self.Effect, ",Cost:", self.Cost)
+        print(self.Name, ",Science:", self.Effect, ",Cost:", self.Cost)
 
+    def MakeEffectCard(self):
+        ShipCard = Image.new('RGBA', Maker.CardSize, 'White')
 
+        Maker.AddBg(ShipCard, ShipBackground)
+        Maker.AddPhoto(ShipCard, self.ImagePath)
+        Maker.AddCardBorder(ShipCard, CardOutline)
+        Maker.AddNameBorder(ShipCard, NameBorder)
+        Maker.AddCenterPhotoBorder(ShipCard, PhotoOutline)
+        Maker.AddTextBorder(ShipCard, EffOutline)
+
+        ShipCard = Maker.addName(ShipCard, self.Name)
+        ShipCard = Maker.addCost(ShipCard, self.Cost)
+        ShipCard = Maker.addEff(ShipCard, self.Effect)
+        ShipCard.save(SaveSciencePath + self.Name + str(self.Cost) + '.png','PNG')
+        #ShipCard.show()
 
 
 def GenerateXEffects():
@@ -33,14 +48,14 @@ def GenerateXEffects():
                     Stringer = Stringer + str(k[j])
                     flag = False
                 else:
-                    Xeffects.append(Effect(xEffectsNames[counter],Stringer,k[j],))
+                    Xeffects.append(Effect(xEffectsNames[counter],Stringer,k[j],xEffectsPhotos[counter]))
     return Xeffects
 
 def GenerateNormal():
     Neffects = list()
     counter = 0
     for i in Effects:
-        Neffects.append(Effect(EffectsNames[counter],i[0],i[1]))
+        Neffects.append(Effect(EffectsNames[counter],i[0],i[1],EffectPhotos[counter]))
         counter += 1;
     return Neffects
 
@@ -49,10 +64,13 @@ def GenEffects():
     Neffects = GenerateNormal()
     effects = Xeffects + Neffects
     return effects
+
 def printEffects():
     effects = GenEffects()
     for i in effects:
         i.printEffect()
 
 
-printEffects()
+Effects = GenEffects()
+for i in Effects[:]:
+    i.MakeEffectCard()

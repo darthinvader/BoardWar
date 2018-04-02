@@ -1,14 +1,14 @@
-from numpy.random import normal
-from math import ceil
 from Generators.Globals import *
 from PIL import Image
 from ImageGen import Maker
 
-class Ship():
-    def __init__(self, Name, Strength, BC, ImagePath):
+
+class Hero():
+    def __init__(self, Name, Strength, BC,Effect, ImagePath):
         self.Name = Name
         self.Strength = Strength
         self.BC = BC
+        self.Effect = Effect
         self.ImagePath = ImagePath
     def setEffect(self, Effect):
         self.Effect = Effect
@@ -32,38 +32,7 @@ class Ship():
         ShipCard = Maker.addName(ShipCard, self.Name)
         ShipCard = Maker.addCost(ShipCard, self.BC)
         ShipCard = Maker.addStr(ShipCard, self.Strength)
+        ShipCard = Maker.addEff(ShipCard, self.Effect)
         ShipCard.save(SaveShipPath + self.Name + str(self.BC) + str(self.Strength) + '.png','PNG')
-        #ShipCard.show()
-
-def GenerateShip(ShipNum):
-    mean = Ships[ShipNum][1]
-    ShipName = Ships[ShipNum][0]
-    strength = ceil(normal(mean, mean / 5))
-    if strength <= 1:
-        strength = 1
-    BC = ceil(normal(strength, mean / 5))
-    if BC <= 1:
-        BC = 1
-    ship = Ship(ShipName, strength, BC, ShipPhotos[ShipNum])
-    return ship
 
 
-# def GenerateHero(ship):
-
-
-def GenerateFleet():
-    ships = list()
-    for i in range(0, len(Ships)):
-        ships.append(GenerateShip(i))
-    return ships
-
-    # heroes = list()
-    # for i in ships:
-    #     heroes.append(GenerateHero(i))
-    #     heroes[-1].printShip()
-
-
-for i in range(0,7):
-    ships = GenerateFleet()
-    for j in ships:
-        j.MakeShipCard()

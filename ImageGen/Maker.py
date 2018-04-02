@@ -24,7 +24,7 @@ StrPosMid = (600, 1530)
 EffMaxSize = (800, 300)
 EffPosMid = (600, 1150)
 
-
+#Todo Heavy Reformatting and Refactoring
 def AddBg(CardImage, Bg):
     CardBg = (Image.open(Bg)).resize(CardSize, Image.ANTIALIAS)
     CardImage.paste(CardBg, NeutralPos, None)
@@ -145,11 +145,10 @@ def addStr(CardImage, Str):
 
 
 def FindEffFontSize(primer, Lines):
-    return FindSingleLineFontSize(primer, DeathStarFont, (EffMaxSize[0], EffMaxSize[1] / Lines), 50)
+    return FindSingleLineFontSize(primer, DeathStarFont, (EffMaxSize[0], EffMaxSize[1] / Lines), 55)
 
 
 def getLinePos(Line, LineNum, TotalLines, fontSize):
-    print(fontSize)
     FontLoad = ImageFont.truetype(DeathStarFont, fontSize)
     txtImage = Image.new('RGBA', CardSize, (255, 255, 255, 0))
     d = ImageDraw.Draw(txtImage)
@@ -163,7 +162,6 @@ def getLinePos(Line, LineNum, TotalLines, fontSize):
 def addEff(CardImage, Eff):
     Eff = textwrap.wrap(Eff, width=30)
     primer = Eff[0]
-    print(len(Eff))
     fontSize, txtSize = FindEffFontSize(primer, len(Eff))
     i = 0
     out = CardImage
@@ -179,9 +177,6 @@ def addEff(CardImage, Eff):
 
 
 def ShipCard(ShipName, BC, Str, Eff, ImagePath):
-    # size = (1700, 1200)
-    FontLoad = ImageFont.truetype(SpaceFont, 100)
-
     ShipCard = Image.new('RGBA', CardSize, 'White')
 
     AddBg(ShipCard, ShipBackground)
@@ -197,7 +192,6 @@ def ShipCard(ShipName, BC, Str, Eff, ImagePath):
     ShipCard = addEff(ShipCard, Eff)
     ShipCard.show()
 
-    # print(d.textsize(ShipName,FontLoad))
 
 
 #ShipCard("I am the FUHRER", 5, 1, "I g of some ouygg fjjf", "../Images/Ships/Corvette.jpg")

@@ -22,7 +22,9 @@ xEffectsNames = ["New Edicts", "Extra Shipyards", "Emergency Reserves", "Spoils 
                  "Extra firepower", "Big Sensors"]
 
 EffectPath = '../Images/Effects/'
-xEffectsPhotos = [EffectPath + 'NewEdicts.png']
+xEffectsPhotos = [EffectPath + 'NewEdicts.png',EffectPath + 'ExtraShipyards.jpg',EffectPath + 'EmergencyReserves.jpg',
+                  EffectPath + 'SpoilsofWar.jpg',EffectPath + 'EmergencyFTL.jpg', EffectPath + 'LotsOfScience.jpg',
+                  EffectPath + 'ExtraFirepower.jpg',EffectPath + 'BigSensors.jpg']
 
 
 
@@ -45,7 +47,11 @@ EffectsNames = ["Sabotage", "Ship Termination", "Mining Overload", "Ship Recycli
                 "Redesigns", "Retreat", "Firepower Overload", "Concentrated Firepower", "Seize the ships", "Recycling",
                 "Peace", "Junk Ship"]
 
-
+EffectPhotos = [EffectPath + 'Sabotage.jpg',EffectPath + 'ShipTermination.jpg', EffectPath + 'MiningOverload.jpg',
+                EffectPath + 'ShipRecycling.jpg',EffectPath +'ResearchGrants.jpg',EffectPath + 'SpaceshipFinding.jpg',
+                EffectPath + 'Redesigns.jpg',EffectPath + 'Retreat.jpg', EffectPath + 'FirepowerOverload.jpg',
+                EffectPath + 'ConcentratedFirepower.jpg', EffectPath + 'SeizeTheShips.jpg',EffectPath + 'Recycling.jpg',
+                EffectPath + 'Peace.jpg',EffectPath+ 'JunkShip.jpg']
 
 
 HeroShips = []
@@ -62,3 +68,7 @@ CardOutline = '../Images/Neutrals/BackgroundBorder.png'
 
 SpaceFont = '../Fonts/Nebulous-Regular.ttf'
 DeathStarFont = '../Fonts/DeathStar.otf'
+
+
+SaveShipPath = '../GeneratedCards/Ships/'
+SaveSciencePath = '../GeneratedCards/Science/'
