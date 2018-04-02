@@ -49,3 +49,4 @@ EffOutline = '../Images/Neutrals/EffStrOutline.png'
 CardOutline = '../Images/Neutrals/BackgroundBorder.png'
 
 SpaceFont = '../Fonts/Nebulous-Regular.ttf'
+DeathStarFont = '../Fonts/DeathStar.otf'
