@@ -2,11 +2,13 @@ from Generators.Globals import *
 from ImageGen import Maker
 from PIL import Image
 class Effect():
-    def __init__(self, Name, Effect, Cost, ImagePath):
+
+    def __init__(self, Name, Effect, Cost, ImagePath,id):
         self.Name = Name
         self.Effect = Effect
         self.Cost = Cost
         self.ImagePath = ImagePath
+        self.ID = id
     def setEffect(self, Effect):
         self.Effect = Effect
 
@@ -29,7 +31,7 @@ class Effect():
         ShipCard = Maker.addName(ShipCard, self.Name)
         ShipCard = Maker.addCost(ShipCard, self.Cost)
         ShipCard = Maker.addEff(ShipCard, self.Effect)
-        ShipCard.save(SaveSciencePath + self.Name + str(self.Cost) + '.png','PNG')
+        ShipCard.save(SaveSciencePath + self.Name + str(self.Cost) + self.Effect[0] + str(self.ID) +'.png','PNG')
         #ShipCard.show()
 
 
@@ -48,14 +50,14 @@ def GenerateXEffects():
                     Stringer = Stringer + str(k[j])
                     flag = False
                 else:
-                    Xeffects.append(Effect(xEffectsNames[counter],Stringer,k[j],xEffectsPhotos[counter]))
+                    Xeffects.append(Effect(xEffectsNames[counter],Stringer,k[j],xEffectsPhotos[counter],counter))
     return Xeffects
 
 def GenerateNormal():
     Neffects = list()
     counter = 0
     for i in Effects:
-        Neffects.append(Effect(EffectsNames[counter],i[0],i[1],EffectPhotos[counter]))
+        Neffects.append(Effect(EffectsNames[counter],i[0],i[1],EffectPhotos[counter],counter))
         counter += 1;
     return Neffects
 

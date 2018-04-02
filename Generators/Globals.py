@@ -14,7 +14,7 @@ xEffects = [("Draw ", (2, 3, 4), " cards.", (20, 30, 40)),
             ("On a skirmish after revealing you can play this Card.Add ", (2, 3, 4), " ships to the skirmish.",
              (20, 30, 40)),
             ("This turn you can buy ", (2, 3, 4), " Science Cards.", (20, 30, 40)),
-            ("After revealing you can play this card.Double the strength of all your ", ShipNames, (75, 75, 75, 75, 75, 75)),
+            ("After revealing you can play this card.Double the strength of all your ", ShipNames, 's', (75, 75, 75, 75, 75, 75)),
             ("After a player you skirmish with places ships face down you can activate this card.Reveal ", (2, 3, 4, 5),
              " ships randomly.", (20, 30, 40, 50))]
 xEffectsNames = ["New Edicts", "Extra Shipyards", "Emergency Reserves", "Spoils of war", "Emergency FTL",
@@ -54,7 +54,9 @@ EffectPhotos = [EffectPath + 'Sabotage.jpg',EffectPath + 'ShipTermination.jpg', 
                 EffectPath + 'Peace.jpg',EffectPath+ 'JunkShip.jpg']
 
 
-HeroShips = []
+HeroShips = [('The Fuhrer',150,'If you win a skirmish with this card You win the war', 200,)]
+
+
 
 
 
