@@ -20,7 +20,11 @@ xEffects = [("Draw ", (2, 3, 4), " cards.", (20, 30, 40)),
 xEffectsNames = ["New Edicts", "Extra Shipyards", "Emergency Reserves", "Spoils of war", "Emergency FTL",
                  "Lots of Science",
                  "Extra firepower", "Big Sensors"]
-xEffectsPhotos = []
+
+EffectPath = '../Images/Effects/'
+xEffectsPhotos = [EffectPath + 'NewEdicts.png']
+
+
 
 Effects = [("Select a player.Select a random card from his hand.Discard it.", 30),
            ("Select a player.Select a random ship from his fleet.Discard it", 45),
@@ -41,7 +45,13 @@ EffectsNames = ["Sabotage", "Ship Termination", "Mining Overload", "Ship Recycli
                 "Redesigns", "Retreat", "Firepower Overload", "Concentrated Firepower", "Seize the ships", "Recycling",
                 "Peace", "Junk Ship"]
 
+
+
+
 HeroShips = []
+
+
+
 
 
 ShipBackground = '../Images/Neutrals/ShipBackground.jpg'

@@ -1,11 +1,11 @@
 from Generators.Globals import *
 
 class Effect():
-    def __init__(self, Name, Effect, Cost):
+    def __init__(self, Name, Effect, Cost, ImagePath):
         self.Name = Name
         self.Effect = Effect
         self.Cost = Cost
-
+        self.ImagePath = ImagePath
     def setEffect(self, Effect):
         self.Effect = Effect
 
@@ -33,7 +33,7 @@ def GenerateXEffects():
                     Stringer = Stringer + str(k[j])
                     flag = False
                 else:
-                    Xeffects.append(Effect(xEffectsNames[counter],Stringer,k[j]))
+                    Xeffects.append(Effect(xEffectsNames[counter],Stringer,k[j],))
     return Xeffects
 
 def GenerateNormal():
