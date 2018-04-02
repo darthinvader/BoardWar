@@ -1,19 +1,15 @@
 from numpy.random import normal
-from numpy import random
-from numpy import exp
-from math import ceil,floor,sqrt
+from math import ceil
 from Generators.Globals import *
-from numpy import log2
-import copy
-
+from PIL import Image
+from ImageGen import Maker
 
 class Ship():
-    def __init__(self, Name, Strength, BC, Effect):
+    def __init__(self, Name, Strength, BC, ImagePath):
         self.Name = Name
         self.Strength = Strength
         self.BC = BC
-        self.Effect = Effect
-
+        self.ImagePath = ImagePath
     def setEffect(self, Effect):
         self.Effect = Effect
 
@@ -21,8 +17,22 @@ class Ship():
         self.Cost = Cost
 
     def printShip(self):
-        print(self.Name, ",Strength:", self.Strength, ",BC:", self.BC, ",Effect:", self.Effect)
+        print(self.Name, ",Strength:", self.Strength, ",BC:", self.BC)
 
+    def MakeShipCard(self):
+        ShipCard = Image.new('RGBA', Maker.CardSize, 'White')
+
+        Maker.AddBg(ShipCard, ShipBackground)
+        Maker.AddPhoto(ShipCard, self.ImagePath)
+        Maker.AddCardBorder(ShipCard, CardOutline)
+        Maker.AddNameBorder(ShipCard, NameBorder)
+        Maker.AddCenterPhotoBorder(ShipCard, PhotoOutline)
+        Maker.AddTextBorder(ShipCard, EffOutline)
+
+        ShipCard = Maker.addName(ShipCard, self.Name)
+        ShipCard = Maker.addCost(ShipCard, self.BC)
+        ShipCard = Maker.addStr(ShipCard, self.Strength)
+        ShipCard.show()
 
 def GenerateShip(ShipNum):
     mean = Ships[ShipNum][1]
@@ -33,7 +43,7 @@ def GenerateShip(ShipNum):
     BC = ceil(normal(strength, mean / 10))
     if BC <= 1:
         BC = 1
-    ship = Ship(ShipName, strength, BC, '')
+    ship = Ship(ShipName, strength, BC, ShipPhotos[ShipNum])
     return ship
 
 
@@ -46,7 +56,6 @@ def GenerateFleet():
         ships.append(GenerateShip(i))
         ships[-1].printShip()
     return ships
-    print()
 
     # heroes = list()
     # for i in ships:
@@ -54,4 +63,4 @@ def GenerateFleet():
     #     heroes[-1].printShip()
 
 
-GenerateFleet()
+ships = GenerateFleet()

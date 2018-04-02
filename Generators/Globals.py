@@ -2,8 +2,10 @@ ShipNames = ['Corvette','Cruiser','Battleship','Destroyer','Dreadgnought','Titan
 
 
 Ships = [('Corvette', 5), ('Cruiser', 10), ('Battleship', 20), ('Destroyer', 30), ('Dreadnought', 45), ('Titan', 100)]
+ShipPath = '../Images/Ships/'
 
-ShipPhotos = ['../Images/Ship/Corvette.jpg']
+ShipPhotos = [ShipPath + 'Corvette.jpg',ShipPath + 'Cruiser.jpg',ShipPath + 'Battleship.jpg',
+              ShipPath + 'Destroyer.jpg',ShipPath + 'Dreadgnought.jpg',ShipPath + 'Titan.jpg']
 
 xEffects = [("Draw ", (2, 3, 4), " cards.", (20, 30, 40)),
             ("This turn you can buy up to ", (2, 3, 4), " ships.", (15, 30, 45)),
