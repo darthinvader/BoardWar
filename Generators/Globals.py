@@ -54,7 +54,33 @@ EffectPhotos = [EffectPath + 'Sabotage.jpg',EffectPath + 'ShipTermination.jpg', 
                 EffectPath + 'Peace.jpg',EffectPath+ 'JunkShip.jpg']
 
 
-HeroShips = [('The Fuhrer',150,'If you win a skirmish with this card You win the war', 200,)]
+SpaceNaziPath = '../Images/SpaceNazis/'
+SpaceNaziBg = SpaceNaziPath + 'naziEarth.jpg'
+
+SpaceUSSR = '../Images/SpaceUSSR/'
+SpaceUSSRBg = SpaceUSSR + 'SpaceCommiesBg.jpg'
+
+SpaceUSA = '../Images/SpaceMurica/'
+SpaceUSABg = SpaceUSA + 'AmericaBg.jpg'
+
+SpaceJapan = '../Images/SpaceJapan/'
+SpaceJapanBg = SpaceJapan + 'JapanBg.jpg'
+
+HeroShips = [('The Fuhrer\'s Titan',150,'If you win a skirmish with this card You win the war.', 200,SpaceNaziPath + 'HitlerTitan.jpg',SpaceNaziBg),
+             ('Himler Dreadgnought',60,'This card\'s strength is equal to 100 if te controller is the attacker.',70,SpaceNaziPath +
+              'HimlerDreadgnought.jpg',SpaceNaziBg),
+             ('SS officer',20,'',35,SpaceNaziPath + 'SSofficer.jpg',SpaceNaziBg),
+             ('Stalin Cruiser',50,'Once per turn you can show this card from your fleet to gain 10 Credits.',50,SpaceUSSR + 'StalinCruiser.jpg',SpaceUSSRBg),
+             ('Lenin Battleship',30,'When you win a war with this card you can add Stalin Cruiser to your Hand(from anywhere)',20,SpaceUSSR + 'LeninBattleship.jpg',SpaceUSSRBg),
+             ('Comrade',2,'',10,SpaceUSSR + 'Comrade.jpg',SpaceUSSRBg),
+             ('Trump Titan',100,'When you buy this card add 2 mining station cards from your deck to the field',100,SpaceUSA + 'TrumpTitan.jpg',SpaceUSABg),
+             ('Obama Battleship',30,'When you buy this card you can send a ship from your fleet to the scrapyard to gain 50 Credits',30,SpaceUSA + 'ObamaBattleship.jpg',SpaceUSABg),
+             ('Muricans',10,'',20,SpaceUSA + 'murican.jpg',SpaceUSABg),
+             ('Miyamoto Masashi',30,'After revealing you can add this card to the mobilized fleet from your fleet',30,SpaceJapan + 'MiyamotoMasashi.jpg',SpaceJapanBg),
+             ('Dragon',20,'This card\'s strength is 60 if its controller is the defender',20,SpaceJapan + 'Dragon.png',SpaceJapanBg),
+             ('Samurai',20,'',35,SpaceJapan + 'Samurai.jpg',SpaceJapanBg)]
+
+
 
 
 

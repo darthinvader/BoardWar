@@ -50,7 +50,7 @@ def GenerateXEffects():
                     Stringer = Stringer + str(k[j])
                     flag = False
                 else:
-                    Xeffects.append(Effect(xEffectsNames[counter],Stringer,k[j],xEffectsPhotos[counter],counter))
+                    Xeffects.append(Effect(xEffectsNames[counter],Stringer,k[j],xEffectsPhotos[counter],j))
     return Xeffects
 
 def GenerateNormal():

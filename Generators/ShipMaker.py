@@ -63,7 +63,7 @@ def GenerateFleet():
     #     heroes[-1].printShip()
 
 
-for i in range(0,7):
+for i in range(0,20):
     ships = GenerateFleet()
     for j in ships:
         j.MakeShipCard()

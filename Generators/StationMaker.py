@@ -1,11 +1,10 @@
 from ImageGen import Maker
 from Generators.Globals import *
-
+from PIL import Image
 class Station():
-    def __init__(self, Name, Strength, BC, ImagePath):
+    def __init__(self, Name, Strength, ImagePath):
         self.Name = Name
         self.Strength = Strength
-        self.BC = BC
         self.ImagePath = ImagePath
     def setEffect(self, Effect):
         self.Effect = Effect
@@ -14,7 +13,7 @@ class Station():
         self.Cost = Cost
 
     def printShip(self):
-        print(self.Name, ",Strength:", self.Strength, ",BC:", self.BC)
+        print(self.Name, ",Strength:", self.Strength)
 
     def MakeShipCard(self):
         ShipCard = Image.new('RGBA', Maker.CardSize, 'White')
@@ -27,9 +26,12 @@ class Station():
         Maker.AddTextBorder(ShipCard, EffOutline)
 
         ShipCard = Maker.addName(ShipCard, self.Name)
-        ShipCard = Maker.addCost(ShipCard, self.BC)
         ShipCard = Maker.addStr(ShipCard, self.Strength)
-        ShipCard.save(SaveShipPath + self.Name + str(self.BC) + str(self.Strength) + '.png','PNG')
+        ShipCard.save(SaveShipPath + self.Name + str(self.Strength) + '.png','PNG')
         #ShipCard.show()
 
+
+
+station = Station('Mining Station',5,'../Images/Station/MiningStation.jpg')
+station.MakeShipCard()
 
